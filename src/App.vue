@@ -264,6 +264,7 @@ body,
     height: 60px;
     background: #f6f6f6;
     border-top: 0.5px solid #ccc;
+    border-bottom: 1px solid transparent;
 
     span {
       margin: 0 10px;
