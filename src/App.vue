@@ -169,7 +169,7 @@ body,
     position: fixed;
     width: 100%;
     top: 0;
-    padding-top: 28px;
+    padding-top: 30px;
   }
   .addbor {
     border-bottom: 0.5px solid #ccc;
@@ -179,7 +179,7 @@ body,
   }
   .contant {
     margin: 0% 5%;
-    padding: 30px 0 80px 0;
+    padding: 60px 0 80px 0;
 
     li {
       .time {
