@@ -104,8 +104,7 @@ export default {
   data() {
     return {
       showBottom: false,
-      listData: [
-      ],
+      listData: [],
       numberData: ["20", "12", "18.80", "25"],
     };
   },
@@ -170,6 +169,7 @@ body,
     position: fixed;
     width: 100%;
     top: 0;
+    padding-top: 28px;
   }
   .addbor {
     border-bottom: 0.5px solid #ccc;
