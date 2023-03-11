@@ -114,7 +114,6 @@ export default {
     clearList() {
       this.listData = [];
       this.showBottom = false;
-
     },
     setting() {
       this.showBottom = true;
@@ -123,24 +122,22 @@ export default {
       this.showBottom = false;
     },
     add(item) {
-      item = Number(item)
+      item = Number(item);
 
       // console.log(item);
       let aggregateAmount = 0;
       this.listData.forEach(
-        (item) => 
-        (aggregateAmount = aggregateAmount + Number(item.money))
+        (item) => (aggregateAmount = aggregateAmount + Number(item.money))
       );
       aggregateAmount = aggregateAmount + item;
-      // for(var key of this.listData){
-      //    aggregateAmount+=key.aggregateAmount;
-      //    console.log(aggregateAmount);
-      // }
-      // aggregateAmount = aggregateAmount.toFixed(2)
-      // let items =item.toFixed(2)
-      let date = new Date();
       let hour = new Date().getHours();
+      if(hour<10){
+        hour = '0'+hour
+      }
       let minute = new Date().getMinutes();
+      if(minute<10){
+        minute = '0'+minute
+      }
       console.log(hour, minute);
       let time = hour + ":" + minute;
       this.listData.push({
@@ -150,6 +147,8 @@ export default {
       });
       this.showBottom = false;
     },
+
+  
   },
 };
 </script>
