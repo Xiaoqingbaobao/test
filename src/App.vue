@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <van-nav-bar background="rgba(237, 237, 237)" title="微信支付" left-arrow>
+    <van-nav-bar
+      background="rgba(237, 237, 237)"
+      :class="this.listData.length > 1 ? 'addbor' : 'noborder'"
+      title="微信支付"
+      left-arrow
+    >
       <template #left>
         <van-icon name="arrow-left" size="22" color="#333" />
       </template>
@@ -29,7 +34,6 @@
             stroke-linejoin="round"
           />
         </svg>
-        <!-- <van-icon name="setting-o" size="18" color="#333"/> -->
       </template>
     </van-nav-bar>
     <ul class="contant">
@@ -66,11 +70,7 @@
         <li v-for="(item, index) in numberData" @click="add(item)">
           +{{ item }}
         </li>
-        <!-- <li @click="add">+12</li>
-        <li @click="add">+18.8</li>
-        <li @click="add">+25</li> -->
         <li @click="clearList">清空</li>
-
         <li @click="unpopover">取消</li>
       </ul>
     </van-popup>
@@ -105,7 +105,6 @@ export default {
     return {
       showBottom: false,
       listData: [
-        // { time: "19:22", money: 20, aggregateAmount: 20 },
       ],
       numberData: ["20", "12", "18.80", "25"],
     };
@@ -123,20 +122,18 @@ export default {
     },
     add(item) {
       item = Number(item);
-
-      // console.log(item);
       let aggregateAmount = 0;
       this.listData.forEach(
         (item) => (aggregateAmount = aggregateAmount + Number(item.money))
       );
       aggregateAmount = aggregateAmount + item;
       let hour = new Date().getHours();
-      if(hour<10){
-        hour = '0'+hour
+      if (hour < 10) {
+        hour = "0" + hour;
       }
       let minute = new Date().getMinutes();
-      if(minute<10){
-        minute = '0'+minute
+      if (minute < 10) {
+        minute = "0" + minute;
       }
       console.log(hour, minute);
       let time = hour + ":" + minute;
@@ -147,8 +144,6 @@ export default {
       });
       this.showBottom = false;
     },
-
-  
   },
 };
 </script>
@@ -158,13 +153,8 @@ body,
 #app {
   height: 100%;
   .amount {
-    // padding: 20px;
-    // height: 100%;
-    // display: flex;
-    // flex-direction: column;
     text-align: center;
     li {
-      // flex: 1;
       height: 60px;
       line-height: 60px;
       border-bottom: 1px solid #ccc;
@@ -181,9 +171,15 @@ body,
     width: 100%;
     top: 0;
   }
+  .addbor {
+    border-bottom: 0.5px solid #ccc;
+  }
+  .noborder {
+    border-bottom: 1px solid transparent;
+  }
   .contant {
     margin: 0% 5%;
-    padding: 50px 0 80px 0;
+    padding: 30px 0 80px 0;
 
     li {
       .time {
@@ -245,10 +241,7 @@ body,
           padding: 10px 0 14px 5px;
           display: flex;
           font-size: 14px;
-          // flex-direction: between;
           justify-content: flex-between;
-          // justify-content:flex-end;
-          // flex: between;
           .symbol_right {
             position: absolute;
             right: 0;
@@ -270,6 +263,8 @@ body,
     width: 100%;
     height: 60px;
     background: #f6f6f6;
+    border-top: 0.5px solid #ccc;
+
     span {
       margin: 0 10px;
     }
