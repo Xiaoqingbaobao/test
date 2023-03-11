@@ -210,7 +210,7 @@ body,
         .momey_number {
           font-family: "微软雅黑";
           text-align: center;
-          font-weight: 600;
+          font-weight: 500;
           span {
             font-size: 38px;
             position: relative;
@@ -218,10 +218,10 @@ body,
               font-family: "微软雅黑";
               content: "￥";
               position: absolute;
-              top: 6px;
+              top: 0px;
               font-size: 28px;
               left: -28px;
-              font-weight: 900;
+              font-weight: 500;
             }
           }
           margin: 10px 0 18px 0;
